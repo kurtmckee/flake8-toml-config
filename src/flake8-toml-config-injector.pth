@@ -1,0 +1,1 @@
+import flake8_toml_config; flake8_toml_config.inject()

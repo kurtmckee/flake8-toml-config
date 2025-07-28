@@ -1,0 +1,8 @@
+/build/
+/dist/
+/htmlcov/
+/.slyp_cache/
+/.tox/
+/.coverage*
+poetry.lock
+*.pyc

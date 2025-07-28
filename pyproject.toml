@@ -1,0 +1,126 @@
+[project]
+name = "flake8-toml-config"
+version = "1.0.0"
+description = "Configure flake8 via pyproject.toml. Supports local plugins."
+authors = [
+    {name = "Kurt McKee", email = "contactme@kurtmckee.org"}
+]
+license = {text = "MIT"}
+readme = "README.rst"
+requires-python = ">=3.9"
+dependencies = [
+    "flake8 (>=7.0.0)",
+]
+
+[tool.poetry]
+packages = [
+    { include = "flake8_toml_config", from = "src/" },
+    { include = "flake8-toml-config-injector.pth", from = "src/" },
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+# chipshot
+# --------
+
+[tool.chipshot]
+template = """
+This file is a part of flake8-toml-config.
+https://github.com/kurtmckee/flake8-toml-config
+Copyright 2025 Kurt McKee <contactme@kurtmckee.org>
+SPDX-License-Identifier: MIT
+"""
+
+
+# coverage
+# --------
+
+[tool.coverage.run]
+relative_files = true
+parallel = true
+branch = true
+source = [
+    "flake8_toml_config",
+    "tests",
+]
+disable_warnings = [
+    "module-not-measured",  # The plugin's .pth file imports cause this warning.
+]
+
+[tool.coverage.paths]
+source = [
+    "src",
+    "*/site-packages",
+]
+
+[tool.coverage.report]
+skip_covered = true
+fail_under = 100
+
+
+# flake8
+# ------
+
+[tool.flake8]
+max-line-length = 80
+extend-select = "B950"
+extend-ignore = [
+    "E203",
+    "E501",
+    "E701",
+]
+
+
+# isort
+# -----
+
+[tool.isort]
+profile = "black"
+force_single_line = true
+
+
+# mypy
+# ----
+
+[tool.mypy]
+packages = "flake8_toml_config"
+strict = true
+sqlite_cache = true
+
+
+# pytest
+# ------
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--color=yes"
+filterwarnings = [
+    "error",
+]
+
+
+# scriv
+# -----
+
+[tool.scriv]
+version = "literal: pyproject.toml: project.version"
+categories = [
+    "Python support",
+    "Added",
+    "Fixed",
+    "Removed",
+    "Changed",
+    "Deprecated",
+    "Security",
+    "Documentation",
+    "Development",
+]
+entry_title_template = "{{ version }} - {{ date.strftime('%Y-%m-%d') }}"
+format = "rst"
+fragment_directory = "changelog.d"
+insert_marker = "scriv-insert-here"
+main_branches = ["main", "releases"]
+new_fragment_template = "file: fragment-template.rst.jinja"

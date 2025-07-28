@@ -1,0 +1,7 @@
+mypy-extensions==1.1.0 ; python_version >= "3.9"
+mypy==1.17.1 ; python_version >= "3.9"
+pathspec==0.12.1 ; python_version >= "3.9"
+tomli==2.2.1 ; python_version >= "3.9" and python_version < "3.11"
+types-flake8==7.3.0.20250622 ; python_version >= "3.9"
+types-pyflakes==3.4.0.20250701 ; python_version >= "3.9"
+typing-extensions==4.14.1 ; python_version >= "3.9"

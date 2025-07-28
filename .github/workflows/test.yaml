@@ -1,0 +1,50 @@
+name: "🧪 Test"
+
+on:
+  pull_request:
+    types:
+      - "opened"
+      - "reopened"
+      - "synchronize"
+      # Release automation opens PRs as drafts without triggering CI;
+      # clicking "Ready for review" in the UI will trigger test runs.
+      - "ready_for_review"
+  push:
+    branches:
+      - "main"
+      - "releases"
+
+jobs:
+  test:
+    name:
+      "${{
+        (startswith(matrix.runner, 'ubuntu') && 'Linux')
+        || (startswith(matrix.runner, 'macos') && 'macOS')
+        || (startswith(matrix.runner, 'windows') && 'Windows')
+      }}"
+
+    strategy:
+      matrix:
+        runner:
+          - "ubuntu-latest"
+          - "macos-latest"
+          - "windows-latest"
+
+        # These values will be applied to all runners listed above.
+        include:
+          - cpythons:
+              - "3.9"
+              - "3.10"
+              - "3.11"
+              - "3.12"
+              - "3.13"
+            cpython-beta: "3.14"
+            cache-key-hash-files:
+              - "pyproject.toml"
+              - "requirements/*/*.txt"
+            cache-paths:
+              - ".mypy_cache/"
+
+    uses: "kurtmckee/github-workflows/.github/workflows/tox.yaml@ca26472ada33aa277527450aa46436f530e3d2c1" # v1.4
+    with:
+      config: "${{ toJSON(matrix) }}"
