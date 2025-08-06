@@ -23,3 +23,15 @@ Please see the fragment files in the `changelog.d directory`_.
 
 
 ..  scriv-insert-here
+
+.. _changelog-1.0.0:
+
+1.0.0 - 2025-08-06
+==================
+
+Initial release
+---------------
+
+*   Support reading flake8 configuration directives from TOML files.
+*   Support loading local flake8 plugins from TOML files.
+*   Support Python 3.9 and higher.
