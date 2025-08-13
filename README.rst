@@ -114,6 +114,7 @@ pre-commit usage
 
 Add this plugin as an additional dependency:
 
+..  START_EXAMPLE_PRE_COMMIT_BLOCK
 ..  code-block:: yaml
 
     - repo: "https://github.com/pycqa/flake8"
@@ -122,6 +123,7 @@ Add this plugin as an additional dependency:
         - id: "flake8"
           additional_dependencies:
             - "flake8-toml-config==1.0.0"
+..  END_EXAMPLE_PRE_COMMIT_BLOCK
 
 
 Note that the ``pre-commit autoupdate`` command, and `pre-commit.ci`_,

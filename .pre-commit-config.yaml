@@ -49,12 +49,14 @@ repos:
     hooks:
       - id: "isort"
 
+# START_README_EXAMPLE_BLOCK
   - repo: "https://github.com/pycqa/flake8"
     rev: "7.3.0"
     hooks:
       - id: "flake8"
         additional_dependencies:
           - "flake8-toml-config==1.0.0"
+# END_README_EXAMPLE_BLOCK
           - "flake8-bugbear==24.12.12"
 
   - repo: "https://github.com/editorconfig-checker/editorconfig-checker"
@@ -76,3 +78,12 @@ repos:
     rev: "v1.0.0"
     hooks:
       - id: "verify-consistent-pyproject-toml-python-requirements"
+
+  - repo: "local"
+    hooks:
+      - id: "update-readme-pre-commit-example"
+        name: "Update the pre-commit config in the README"
+        language: "python"
+        entry: "python assets/update_readme_pre_commit_example.py"
+        always_run: true
+        pass_filenames: false
