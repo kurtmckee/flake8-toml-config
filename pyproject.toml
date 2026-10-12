@@ -1,13 +1,13 @@
 [project]
 name = "flake8-toml-config"
-version = "1.0.0"
+version = "1.1.0"
 description = "Configure flake8 via pyproject.toml. Supports local plugins."
 authors = [
     {name = "Kurt McKee", email = "contactme@kurtmckee.org"}
 ]
 license = {text = "MIT"}
 readme = "README.rst"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
     "flake8 (>=7.0.0)",
 ]
@@ -16,6 +16,7 @@ dependencies = [
 packages = [
     { include = "flake8_toml_config", from = "src/" },
     { include = "flake8-toml-config-injector.pth", from = "src/" },
+    { include = "flake8-toml-config-injector.start", from = "src/" },
 ]
 
 [build-system]
@@ -30,7 +31,7 @@ build-backend = "poetry.core.masonry.api"
 template = """
 This file is a part of flake8-toml-config.
 https://github.com/kurtmckee/flake8-toml-config
-Copyright 2025 Kurt McKee <contactme@kurtmckee.org>
+Copyright 2025-2026 Kurt McKee <contactme@kurtmckee.org>
 SPDX-License-Identifier: MIT
 """
 

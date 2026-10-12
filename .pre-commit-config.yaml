@@ -2,7 +2,7 @@ ci:
   autoupdate_schedule: "quarterly"
 
 default_language_version:
-  python: "python3.13"
+  python: "python3.15"
 
 repos:
   - repo: "meta"
@@ -11,7 +11,7 @@ repos:
       - id: "check-useless-excludes"
 
   - repo: "https://github.com/pre-commit/pre-commit-hooks"
-    rev: "v5.0.0"
+    rev: "3e8a8703264a2f4a69428a0aa4dcb512790b2c8c"  # frozen: v6.0.0
     hooks:
       - id: "check-added-large-files"
       - id: "check-merge-conflict"
@@ -23,55 +23,67 @@ repos:
       - id: "trailing-whitespace"
 
   - repo: "https://github.com/adhtruong/mirrors-typos"
-    rev: "v1.35.1"
+    rev: "055a23723277d32b55190e5f71a82d398b8e32c2"  # frozen: v1.50.2
     hooks:
       - id: "typos"
 
   - repo: "https://github.com/asottile/pyupgrade"
-    rev: "v3.20.0"
+    rev: "75992aaa40730136014f34227e0135f63fc951b4"  # frozen: v3.21.2
     hooks:
       - id: "pyupgrade"
-        name: "Enforce Python 3.9+ idioms"
-        args: ["--py39-plus"]
+        name: "Enforce Python 3.11+ idioms"
+        args: ["--py311-plus"]
 
   - repo: "https://github.com/sirosen/slyp"
-    rev: "0.8.2"
+    rev: "5eda35ad8f51f572b10523884f466df187335f74"  # frozen: 0.10.3
     hooks:
       - id: "slyp"
 
   - repo: "https://github.com/psf/black-pre-commit-mirror"
-    rev: "25.1.0"
+    rev: "4160603246a6b365d4a2af661c6d71b0a0f50478"  # frozen: 26.5.1
     hooks:
       - id: "black"
 
   - repo: "https://github.com/pycqa/isort"
-    rev: "6.0.1"
+    rev: "131f4adcd5582bfc53928ab0d740eceb8b506b6c"  # frozen: 9.0.1
     hooks:
       - id: "isort"
 
+# START_README_EXAMPLE_BLOCK
   - repo: "https://github.com/pycqa/flake8"
-    rev: "7.3.0"
+    rev: "c48217e1fc006c2dddd14df54e83b67da15de5cd"  # frozen: 7.3.0
     hooks:
       - id: "flake8"
         additional_dependencies:
-          - "flake8-bugbear==24.12.12"
+          - "flake8-toml-config==1.0.0"
+# END_README_EXAMPLE_BLOCK
+          - "flake8-bugbear==26.9.30"
 
   - repo: "https://github.com/editorconfig-checker/editorconfig-checker"
-    rev: "v3.3.0"
+    rev: "0adfdb012938ada0cf563a40f2fceaf9466290ca"  # frozen: v4.0.2
     hooks:
       - id: "editorconfig-checker"
 
   - repo: "https://github.com/python-jsonschema/check-jsonschema"
-    rev: "0.33.2"
+    rev: "12e63946db2c5cfcc9030fac21c3883ba88c6ed8"  # frozen: 0.38.0
     hooks:
       - id: "check-dependabot"
 
   - repo: "https://github.com/rhysd/actionlint"
-    rev: "v1.7.7"
+    rev: "914e7df21a07ef503a81201c76d2b11c789d3fca"  # frozen: v1.7.12
     hooks:
       - id: "actionlint"
 
   - repo: "https://github.com/kurtmckee/pre-commit-hooks"
-    rev: "v1.0.0"
+    rev: "44b638c826f1acd2ba2c5995db3156be60c5efea"  # frozen: v1.0.0
     hooks:
       - id: "verify-consistent-pyproject-toml-python-requirements"
+
+  - repo: "local"
+    hooks:
+      - id: "update-readme-pre-commit-example"
+        name: "Update the pre-commit config in the README"
+        language: "python"
+        entry: "python assets/update_readme_pre_commit_example.py"
+        always_run: true
+        pass_filenames: false

@@ -1,7 +1,7 @@
 ..
     This file is a part of flake8-toml-config.
     https://github.com/kurtmckee/flake8-toml-config
-    Copyright 2025 Kurt McKee <contactme@kurtmckee.org>
+    Copyright 2025-2026 Kurt McKee <contactme@kurtmckee.org>
     SPDX-License-Identifier: MIT
 
 ..
@@ -23,6 +23,30 @@ Please see the fragment files in the `changelog.d directory`_.
 
 
 ..  scriv-insert-here
+
+.. _changelog-1.1.0:
+
+1.1.0 - 2026-10-12
+==================
+
+Python support
+--------------
+
+*   Support Python 3.15.
+*   Drop support for Python 3.9 and 3.10.
+
+Added
+-----
+
+*   Add a PEP 829 ``.start`` file to inject TOML configurations into flake8.
+
+    The ``.start`` file is supported by Python 3.15 and higher.
+    Python 3.14 and lower continue to be supported by a ``.pth`` file.
+
+Development
+-----------
+
+*   Use pre-commit to keep the pre-commit example in the README update-to-date.
 
 .. _changelog-1.0.0:
 
