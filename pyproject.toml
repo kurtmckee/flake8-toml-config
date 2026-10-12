@@ -16,6 +16,7 @@ dependencies = [
 packages = [
     { include = "flake8_toml_config", from = "src/" },
     { include = "flake8-toml-config-injector.pth", from = "src/" },
+    { include = "flake8-toml-config-injector.start", from = "src/" },
 ]
 
 [build-system]
