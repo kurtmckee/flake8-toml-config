@@ -122,7 +122,7 @@ Add this plugin as an additional dependency:
       hooks:
         - id: "flake8"
           additional_dependencies:
-            - "flake8-toml-config==1.0.0"
+            - "flake8-toml-config==1.1.0"
 ..  END_EXAMPLE_PRE_COMMIT_BLOCK
 
 

@@ -1,6 +1,6 @@
 [project]
 name = "flake8-toml-config"
-version = "1.0.0"
+version = "1.1.0"
 description = "Configure flake8 via pyproject.toml. Supports local plugins."
 authors = [
     {name = "Kurt McKee", email = "contactme@kurtmckee.org"}
