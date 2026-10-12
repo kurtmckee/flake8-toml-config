@@ -1,7 +1,7 @@
 ..
     This file is a part of flake8-toml-config.
     https://github.com/kurtmckee/flake8-toml-config
-    Copyright 2025 Kurt McKee <contactme@kurtmckee.org>
+    Copyright 2025-2026 Kurt McKee <contactme@kurtmckee.org>
     SPDX-License-Identifier: MIT
 
 flake8-toml-config
@@ -118,7 +118,7 @@ Add this plugin as an additional dependency:
 ..  code-block:: yaml
 
     - repo: "https://github.com/pycqa/flake8"
-      rev: "7.3.0"
+      rev: "c48217e1fc006c2dddd14df54e83b67da15de5cd"  # frozen: 7.3.0
       hooks:
         - id: "flake8"
           additional_dependencies:

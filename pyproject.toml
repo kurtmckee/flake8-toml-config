@@ -7,7 +7,7 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.rst"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
     "flake8 (>=7.0.0)",
 ]
@@ -30,7 +30,7 @@ build-backend = "poetry.core.masonry.api"
 template = """
 This file is a part of flake8-toml-config.
 https://github.com/kurtmckee/flake8-toml-config
-Copyright 2025 Kurt McKee <contactme@kurtmckee.org>
+Copyright 2025-2026 Kurt McKee <contactme@kurtmckee.org>
 SPDX-License-Identifier: MIT
 """
 

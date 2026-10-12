@@ -1,17 +1,16 @@
 # This file is a part of flake8-toml-config.
 # https://github.com/kurtmckee/flake8-toml-config
-# Copyright 2025 Kurt McKee <contactme@kurtmckee.org>
+# Copyright 2025-2026 Kurt McKee <contactme@kurtmckee.org>
 # SPDX-License-Identifier: MIT
 
 from __future__ import annotations
 
 import configparser
 import pathlib
+import tomllib
 import typing
 
 import flake8.exceptions
-
-from ._compat import tomllib
 
 
 def load_config(
